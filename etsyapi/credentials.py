@@ -21,7 +21,7 @@ def load_credentials_from_file():
         f.close()
         return credentials
     else:
-        raise Error("No credentials provided. Required client_key and client_secret")
+        raise Exception("No credentials provided. Required client_key and client_secret")
 
 
 def fetch_request_for_credentials(credentials):
@@ -60,7 +60,7 @@ def verify_credentials(credentials, verifier):
         credentials['resource_owner_secret'] = access.get('oauth_token_secret')[0]
         credentials['verfied'] = True
     except:
-        raise Error('There was a problem with verfication')
+        raise Exception('There was a problem with verfication')
 
     return credentials
 
